@@ -1,0 +1,125 @@
+Errors
+
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=warning msg="not running in CIS mode"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Applying Pod Security Admission Configuration"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Starting rke2 v1.31.7+rke2r1 (7b18bda1c5ec1e110cec206f9163f6aba3a2154d)"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Managed etcd cluster initializing"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Starting etcd for new cluster, cluster-reset=false"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg=start
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="schedule, now=2025-04-29T14:54:28+05:30, entry=1, next=2025-04-30T00:00:00+05:30"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=debug msg="Getting S3 snapshot cluster ID and server token hash"
+Apr 29 14:54:28 master rke2[5899]: W0429 14:54:28.053316    5899 logging.go:55] [core] [Channel #1 SubChannel #2]grpc: addrConn.createTransport failed to connect to {Addr: "127.0.0.1:2379", ServerName: "127.0.0.1:2379", }. Err: connecti>
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while >
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Running kube-apiserver --advertise-port=6443 --allow-privileged=true --anonymous-auth=false --api-audiences=https://kubernetes.default.svc.cluster.local>
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Removed kube-apiserver static pod manifest"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Running kube-scheduler --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/scheduler.kubeconfig --authorization-kubeconfig=/var/lib/rancher/rk>
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Running kube-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/controller.kubeconfig --authori>
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Running cloud-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/cloud-controller.kubeconfig -->
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Server node token is available at /var/lib/rancher/rke2/server/token"
+Apr 29 14:54:28 master rke2[5899]: W0429 14:54:28.257768    5899 logging.go:55] [core] [Channel #3 SubChannel #4]grpc: addrConn.createTransport failed to connect to {Addr: "/run/k3s/containerd/containerd.sock", ServerName: "%2Frun%2Fk3s>
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/container>
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="To join server node to cluster: rke2 server -s https://10.212.61.134:9345 -t ${SERVER_NODE_TOKEN}"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Agent node token is available at /var/lib/rancher/rke2/server/agent-token"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="To join agent node to cluster: rke2 agent -s https://10.212.61.134:9345 -t ${AGENT_NODE_TOKEN}"
+Apr 29 14:54:28 master rke2[5899]: time="2025-04-29T14:54:28+05:30" level=info msg="Wrote kubeconfig /etc/rancher/rke2/rke2.yaml"
+
+export http_proxy="http://10.205.48.15:8080"
+export https_proxy="http://10.205.48.15:8080"
+
+http_proxy="http://10.205.48.15:8080"
+https_proxy="http://10.205.48.15:8080"
+
+
+
+Master
+
+Server RHEl
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+
+
+Disk - 150 GB
+
+Master -- 10.205.47.32
+hclsxdb
+hclsxapp -- 10.205.47.34
+
+
+Master--  10.212.61.134
+hclsxdb-- 10.212.61.133
+hclsxapp--10.212.61.132
+
+Ports to check
+2379
+
+
+[root@master ~]# export http_proxy="http://10.205.48.15:8080"
+[root@master ~]# export https_proxy="http://10.205.48.15:8080"
+
+
+
+
+
+[root@master ~]# journalctl -u rke2-server.service -b
+Apr 29 14:11:19 master systemd[1]: Starting Rancher Kubernetes Engine v2 (server)...
+Apr 29 14:11:19 master sh[2904]: + /usr/bin/systemctl is-enabled --quiet nm-cloud-setup.service
+Apr 29 14:11:19 master systemctl[2905]: Failed to get unit file state for nm-cloud-setup.service: No such file or directory
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=warning msg="Unknown flag --disable-swap found in config.yaml, skipping\n"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=warning msg="Unknown flag --rbac found in config.yaml, skipping\n"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=warning msg="not running in CIS mode"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Applying Pod Security Admission Configuration"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Starting rke2 v1.31.7+rke2r1 (7b18bda1c5ec1e110cec206f9163f6aba3a2154d)"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Managed etcd cluster initializing"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="generated self-signed CA certificate CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19.612059769 +0000 UTC notAfter=2035-04-27 08:41:19.612059>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=system:admin,O=system:masters signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:1>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=system:rke2-supervisor,O=system:masters signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04->
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=system:kube-controller-manager signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=system:kube-scheduler signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0000 >
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=system:apiserver,O=system:masters signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=rke2-cloud-controller-manager signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:1>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="generated self-signed CA certificate CN=rke2-server-ca@1745916079: notBefore=2025-04-29 08:41:19.616299242 +0000 UTC notAfter=2035-04-27 08:41:19.616299>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=kube-apiserver signed by CN=rke2-server-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0000 UTC"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="generated self-signed CA certificate CN=rke2-request-header-ca@1745916079: notBefore=2025-04-29 08:41:19.617448791 +0000 UTC notAfter=2035-04-27 08:41:1>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=system:auth-proxy signed by CN=rke2-request-header-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="generated self-signed CA certificate CN=etcd-server-ca@1745916079: notBefore=2025-04-29 08:41:19.618428597 +0000 UTC notAfter=2035-04-27 08:41:19.618428>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=etcd-client signed by CN=etcd-server-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0000 UTC"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="generated self-signed CA certificate CN=etcd-peer-ca@1745916079: notBefore=2025-04-29 08:41:19.619334835 +0000 UTC notAfter=2035-04-27 08:41:19.61933483>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=etcd-peer signed by CN=etcd-peer-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0000 UTC"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=etcd-server signed by CN=etcd-server-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0000 UTC"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Starting etcd for new cluster, cluster-reset=false"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg=start
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="schedule, now=2025-04-29T14:11:19+05:30, entry=1, next=2025-04-30T00:00:00+05:30"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="certificate CN=rke2,O=rke2 signed by CN=rke2-server-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:19 +0000 UTC"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=debug msg="Getting S3 snapshot cluster ID and server token hash"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=warning msg="dynamiclistener [::]:9345: no cached certificate available for preload - deferring certificate load until storage initialization or first client requ>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Active TLS secret / (ver=) (count 12): map[listener.cattle.io/cn-10.212.61.132:10.212.61.132 listener.cattle.io/cn-10.212.61.133:10.212.61.133 listener.>
+Apr 29 14:11:19 master rke2[2911]: W0429 14:11:19.728109    2911 logging.go:55] [core] [Channel #1 SubChannel #2]grpc: addrConn.createTransport failed to connect to {Addr: "127.0.0.1:2379", ServerName: "127.0.0.1:2379", }. Err: connecti>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while >
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Running kube-apiserver --advertise-port=6443 --allow-privileged=true --anonymous-auth=false --api-audiences=https://kubernetes.default.svc.cluster.local>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Removed kube-apiserver static pod manifest"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Running kube-scheduler --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/scheduler.kubeconfig --authorization-kubeconfig=/var/lib/rancher/rk>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Running kube-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/controller.kubeconfig --authori>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Running cloud-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/cloud-controller.kubeconfig -->
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Server node token is available at /var/lib/rancher/rke2/server/token"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="To join server node to cluster: rke2 server -s https://10.212.61.134:9345 -t ${SERVER_NODE_TOKEN}"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Agent node token is available at /var/lib/rancher/rke2/server/agent-token"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="To join agent node to cluster: rke2 agent -s https://10.212.61.134:9345 -t ${AGENT_NODE_TOKEN}"
+Apr 29 14:11:19 master rke2[2911]: W0429 14:11:19.902905    2911 logging.go:55] [core] [Channel #3 SubChannel #4]grpc: addrConn.createTransport failed to connect to {Addr: "/run/k3s/containerd/containerd.sock", ServerName: "%2Frun%2Fk3s>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/container>
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Wrote kubeconfig /etc/rancher/rke2/rke2.yaml"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Run: rke2 kubectl"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=debug msg="Supervisor proxy using supervisor=https://127.0.0.1:9345 apiserver=https://127.0.0.1:9345 lb=false"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Cluster-Http-Server 2025/04/29 14:11:19 http: TLS handshake error from 127.0.0.1:36816: remote error: tls: bad certificate"
+Apr 29 14:11:19 master rke2[2911]: time="2025-04-29T14:11:19+05:30" level=info msg="Cluster-Http-Server 2025/04/29 14:11:19 http: TLS handshake error from 127.0.0.1:36850: remote error: tls: bad certificate"
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=debug msg="Supervisor proxy apiserver port changed; apiserver=https://127.0.0.1:6443 lb=false"
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="Password verified locally for node master"
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="certificate CN=master signed by CN=rke2-server-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:20 +0000 UTC"
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="certificate CN=system:node:master,O=system:nodes signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:>
+Apr 29 14:11:20 master rke2[2911]: W0429 14:11:20.728911    2911 logging.go:55] [core] [Channel #1 SubChannel #2]grpc: addrConn.createTransport failed to connect to {Addr: "127.0.0.1:2379", ServerName: "127.0.0.1:2379", }. Err: connecti>
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="certificate CN=system:kube-proxy signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:20 +0000 UTC"
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="certificate CN=system:rke2-controller signed by CN=rke2-client-ca@1745916079: notBefore=2025-04-29 08:41:19 +0000 UTC notAfter=2026-04-29 08:41:20 +0000>
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="Module overlay was already loaded"
+Apr 29 14:11:20 master rke2[2911]: time="2025-04-29T14:11:20+05:30" level=info msg="Module nf_conntrack was already loaded"
+
+
+
