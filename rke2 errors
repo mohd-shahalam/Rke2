@@ -1,0 +1,49 @@
+[root@master ~]# journalctl -u rke2-server.service -n 500
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Running kube-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/controller.kubeconfig --autho>
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Running cloud-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/var/lib/rancher/rke2/server/cred/cloud-controller.kubeconfig >
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Server node token is available at /var/lib/rancher/rke2/server/token"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="To join server node to cluster: rke2 server -s https://10.212.61.134:9345 -t ${SERVER_NODE_TOKEN}"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Agent node token is available at /var/lib/rancher/rke2/server/agent-token"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="To join agent node to cluster: rke2 agent -s https://10.212.61.134:9345 -t ${AGENT_NODE_TOKEN}"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/contain>
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Wrote kubeconfig /etc/rancher/rke2/rke2.yaml"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Run: rke2 kubectl"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="Password verified locally for node master"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="certificate CN=master signed by CN=rke2-server-ca@1745993607: notBefore=2025-04-30 06:13:27 +0000 UTC notAfter=2026-04-30 07:33:29 +0000 UTC"
+Apr 30 13:03:29 master rke2[105831]: time="2025-04-30T13:03:29+05:30" level=info msg="certificate CN=system:node:master,O=system:nodes signed by CN=rke2-client-ca@1745993607: notBefore=2025-04-30 06:13:27 +0000 UTC notAfter=2026-04-30 0>
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="certificate CN=system:kube-proxy signed by CN=rke2-client-ca@1745993607: notBefore=2025-04-30 06:13:27 +0000 UTC notAfter=2026-04-30 07:33:30 +0000 UT>
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="certificate CN=system:rke2-controller signed by CN=rke2-client-ca@1745993607: notBefore=2025-04-30 06:13:27 +0000 UTC notAfter=2026-04-30 07:33:30 +00>
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Module overlay was already loaded"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Module nf_conntrack was already loaded"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Module br_netfilter was already loaded"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Module iptable_nat was already loaded"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Module iptable_filter was already loaded"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Checking local image archives in /var/lib/rancher/rke2/agent/images for index.docker.io/rancher/rke2-runtime:v1.31.7-rke2r1"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=warning msg="Failed to load runtime image index.docker.io/rancher/rke2-runtime:v1.31.7-rke2r1 from tarball: no local image available for index.docker.io/rancher>
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Checking local image archives in /var/lib/rancher/rke2/agent/images for index.docker.io/rancher/rke2-runtime:v1.31.7-rke2r1"
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=warning msg="Failed to load runtime image index.docker.io/rancher/rke2-runtime:v1.31.7-rke2r1 from tarball: no local image available for index.docker.io/rancher>
+Apr 30 13:03:30 master rke2[105831]: time="2025-04-30T13:03:30+05:30" level=info msg="Pulling runtime image index.docker.io/rancher/rke2-runtime:v1.31.7-rke2r1"
+Apr 30 13:03:33 master rke2[105831]: time="2025-04-30T13:03:33+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:03:38 master rke2[105831]: time="2025-04-30T13:03:38+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:03:43 master rke2[105831]: time="2025-04-30T13:03:43+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:03:48 master rke2[105831]: time="2025-04-30T13:03:48+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:03:49 master rke2[105831]: time="2025-04-30T13:03:49+05:30" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/contain>
+Apr 30 13:03:53 master rke2[105831]: time="2025-04-30T13:03:53+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:03:58 master rke2[105831]: time="2025-04-30T13:03:58+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:03:59 master rke2[105831]: time="2025-04-30T13:03:59+05:30" level=info msg="Waiting for API server to become available to start kube-scheduler"
+Apr 30 13:03:59 master rke2[105831]: time="2025-04-30T13:03:59+05:30" level=info msg="Waiting for etcd server to become available"
+Apr 30 13:03:59 master rke2[105831]: time="2025-04-30T13:03:59+05:30" level=info msg="Waiting for API server to become available to start cloud-controller-manager"
+Apr 30 13:04:03 master rke2[105831]: time="2025-04-30T13:04:03+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:04:08 master rke2[105831]: time="2025-04-30T13:04:08+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:04:09 master rke2[105831]: time="2025-04-30T13:04:09+05:30" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/contain>
+Apr 30 13:04:13 master rke2[105831]: time="2025-04-30T13:04:13+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:04:18 master rke2[105831]: time="2025-04-30T13:04:18+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:04:23 master rke2[105831]: time="2025-04-30T13:04:23+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:04:28 master rke2[105831]: time="2025-04-30T13:04:28+05:30" level=info msg="Failed to test data store connection: failed to get etcd status: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error whil>
+Apr 30 13:04:29 master rke2[105831]: time="2025-04-30T13:04:29+05:30" level=info msg="Waiting for API server to become available to start cloud-controller-manager"
+Apr 30 13:04:29 master rke2[105831]: time="2025-04-30T13:04:29+05:30" level=info msg="Waiting for etcd server to become available"
+Apr 30 13:04:29 master rke2[105831]: time="2025-04-30T13:04:29+05:30" level=info msg="Waiting for API server to become available to start kube-scheduler"
+Apr 30 13:04:29 master rke2[105831]: time="2025-04-30T13:04:29+05:30" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/contain>
+Apr 30 13:04:30 master rke2[105831]: time="2025-04-30T13:04:30+05:30" level=warning msg="Failed to get image from endpoint: Get \"https://index.docker.io/v2/\": dial tcp: lookup index.docker.io on 172.16.95.22:53: read udp 10.212.61.134>
+Apr 30 13:04:30 master rke2[105831]: time="2025-04-30T13:04:30+05:30" level=fatal msg="failed to get runtime image index.docker.io/rancher/rke2-runtime:v1.31.7-rke2r1: all endpoints failed: Get \"https://index.docker.io/v2/\": dial tcp:>
+Apr 30 13:04:30 master systemd[1]: rke2-server.service: Main process exited, code=exited, status=1/FAILURE
